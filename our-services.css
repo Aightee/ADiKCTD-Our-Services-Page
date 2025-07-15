@@ -198,6 +198,7 @@ h2 {
   height: 300px;
   margin: 20px;
   border-radius: 20px;
+  transition: border-radius 0.6s ease, transform 0.6s ease;
 }
 
 .box img {
@@ -205,34 +206,42 @@ h2 {
   border-radius: 20px;
   width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+   transition: transform 0.3s ease, border-radius 0.5s ease;
+  border-radius: inherit;
 }
 
 .box:hover img {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+   border-radius: 50%;
 }
+
+.box:hover {
+ transform: scale(1.05);
+  border-radius: 50%;
+}
+
 
 /* Hover text overlay */
 .hover-text {
-  cursor: pointer;
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   color: aliceblue;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: inherit;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 20px;
-  /* text-align: center; */
-  padding: 10px;
-  font-size: 24px;
-  pointer-events: none; /*NEW: allows hover to pass through */
+  transition: opacity 0.4s ease, border-radius 0.6s ease;
+  pointer-events: none;
+}
+
+.box:hover .hover-text {
+  opacity: 1;
+  border-radius: 50%;
 }
 
 .box .box-logo {
@@ -243,10 +252,6 @@ h2 {
   height: 15%;
   z-index: 5;
   pointer-events: none;
-}
-
-.box:hover .hover-text {
-  opacity: 1;
 }
 
 .box_container {
